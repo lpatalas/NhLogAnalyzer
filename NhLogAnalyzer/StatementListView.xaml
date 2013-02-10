@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-		<ListBox ItemsSource="{Binding Statements}">
+		<ListBox ItemsSource="{Binding Statements}" SelectedItem="{Binding SelectedStatement}">
 			<ListBox.ItemTemplate>
 				<DataTemplate DataType="{x:Type local:Statement}">
 					<TextBlock Text="{Binding SingleLineSqlText}" TextTrimming="CharacterEllipsis" />

@@ -9,9 +9,23 @@ using Caliburn.Micro;
 
 namespace NhLogAnalyzer
 {
-	public class StatementListViewModel
+	public class StatementListViewModel : PropertyChangedBase, IStatementList
 	{
 		private readonly IStatementLog statementLog;
+
+		private Statement selectedStatement;
+		public Statement SelectedStatement
+		{
+			get { return selectedStatement; }
+			set
+			{
+				if (selectedStatement != value)
+				{
+					selectedStatement = value;
+					NotifyOfPropertyChange(() => SelectedStatement);
+				}
+			}
+		}
 
 		public IList<Statement> Statements
 		{

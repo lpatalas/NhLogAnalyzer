@@ -10,6 +10,32 @@ namespace NhLogAnalyzer.UnitTests
 {
 	public class StatementListViewModelTests
 	{
+		public class SelectedStatement
+		{
+			[Fact]
+			public void Should_raise_PropertyChanged_event_when_value_changes()
+			{
+				// Arrange
+				var statementLog = new MockStatementLog();
+				statementLog.Statements = new[]
+				{
+					new Statement(1, "First", string.Empty, DateTime.Now),
+					new Statement(2, "Second", string.Empty, DateTime.Now),
+				};
+				var viewModel = new StatementListViewModel(statementLog);
+
+				var changedProperties = new List<string>();
+				viewModel.PropertyChanged += (sender, e) => { changedProperties.Add(e.PropertyName); }; 
+
+				// Act
+				viewModel.SelectedStatement = statementLog.Statements[1];
+
+				// Assert
+				Assert.Equal(1, changedProperties.Count);
+				Assert.Equal("SelectedStatement", changedProperties[0]);
+			}
+		}
+
 		public class StatementsProperty
 		{
 			private const string logFileName = @"X:\files.txt";

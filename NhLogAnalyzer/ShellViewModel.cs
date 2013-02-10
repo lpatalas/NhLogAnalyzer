@@ -11,6 +11,12 @@ namespace NhLogAnalyzer
 		private readonly IOpenFileDialog openFileDialog;
 		private readonly IStatementLog statementLog;
 
+		private readonly StatementDetailsViewModel statementDetails;
+		public StatementDetailsViewModel StatementDetails
+		{
+			get { return statementDetails; }
+		}
+
 		private readonly StatementListViewModel statementList;
 		public StatementListViewModel StatementList
 		{
@@ -22,6 +28,7 @@ namespace NhLogAnalyzer
 			this.openFileDialog = openFileDialog;
 			this.statementLog = statementLog;
 			this.statementList = new StatementListViewModel(statementLog);
+			this.statementDetails = new StatementDetailsViewModel(statementList);
 		}
 
 		public void OpenFile()

@@ -103,6 +103,7 @@
     <Compile Include="DependencyInjectionModule.cs" />
     <Compile Include="IConnectionFactory.cs" />
     <Compile Include="IOpenFileDialog.cs" />
+    <Compile Include="IStatementList.cs" />
     <Compile Include="IStatementLog.cs" />
     <Compile Include="IStatementReader.cs" />
     <Compile Include="OpenFileDialog.cs" />
@@ -118,6 +119,10 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="SQLiteConnectionFactory.cs" />
     <Compile Include="Statement.cs" />
+    <Compile Include="StatementDetailsView.xaml.cs">
+      <DependentUpon>StatementDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatementDetailsViewModel.cs" />
     <Compile Include="StatementListView.xaml.cs">
       <DependentUpon>StatementListView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -128,6 +133,10 @@
     <Compile Include="StatementLog.cs" />
     <Compile Include="StatementReader.cs" />
     <Page Include="ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatementDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
