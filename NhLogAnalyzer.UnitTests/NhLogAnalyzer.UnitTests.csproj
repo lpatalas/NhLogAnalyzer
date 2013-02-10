@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fakes\MockConnectionFactory.cs" />
+    <Compile Include="Fakes\MockDbCommand.cs" />
+    <Compile Include="Fakes\MockDbConnection.cs" />
     <Compile Include="Fakes\MockOpenFileDialog.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellViewModelTests.cs" />
     <Compile Include="StatementLogTests.cs" />
+    <Compile Include="StatementReaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

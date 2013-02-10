@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IConnectionFactory.cs" />
     <Compile Include="IOpenFileDialog.cs" />
     <Compile Include="IStatementLog.cs" />
     <Compile Include="IStatementReader.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Statement.cs" />
     <Compile Include="StatementLog.cs" />
+    <Compile Include="StatementReader.cs" />
     <Page Include="ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
