@@ -11,13 +11,21 @@ namespace NhLogAnalyzer
 		private readonly IOpenFileDialog openFileDialog;
 		private readonly IStatementLog statementLoader;
 
-		public string TitleText { get; set; }
+		private readonly StatementListViewModel statementList;
+		public StatementListViewModel StatementList
+		{
+			get { return statementList; }
+		}
 
 		public ShellViewModel(IOpenFileDialog openFileDialog, IStatementLog statementLoader)
 		{
-			TitleText = "ShellView";
 			this.openFileDialog = openFileDialog;
 			this.statementLoader = statementLoader;
+
+			var connectionFactory = new SQLiteConnectionFactory();
+			var statementReader = new StatementReader(connectionFactory);
+			var statementLog = new StatementLog(statementReader);
+			this.statementList = new StatementListViewModel(statementLog);
 		}
 
 		public void OpenFile()

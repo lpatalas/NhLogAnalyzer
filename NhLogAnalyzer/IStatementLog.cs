@@ -8,6 +8,7 @@ namespace NhLogAnalyzer
 {
 	public interface IStatementLog
 	{
+		IList<Statement> Statements { get; }
 		void Reset(string fileName);
 	}
 }

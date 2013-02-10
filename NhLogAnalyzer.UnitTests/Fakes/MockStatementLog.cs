@@ -10,6 +10,17 @@ namespace NhLogAnalyzer.UnitTests.Fakes
 	{
 		public Action<string> ResetImpl = fileName => { };
 
+		public IList<Statement> Statements
+		{
+			get;
+			set;
+		}
+
+		public MockStatementLog()
+		{
+			Statements = new List<Statement>();
+		}
+
 		public void Reset(string fileName)
 		{
 			ResetImpl(fileName);

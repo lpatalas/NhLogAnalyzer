@@ -11,8 +11,7 @@
 			<ColumnDefinition Width="Auto" />
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
-		<ListView Grid.Column="0">
-		</ListView>
+		<ContentControl x:Name="StatementList" Grid.Column="0" />
 		<GridSplitter Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="3" />
 		<Grid Grid.Column="2">
 			<Grid.RowDefinitions>
