@@ -82,6 +82,7 @@
     <Compile Include="IOpenFileDialog.cs" />
     <Compile Include="IStatementLog.cs" />
     <Compile Include="IStatementReader.cs" />
+    <Compile Include="OpenFileDialog.cs" />
     <Compile Include="OpenFileResult.cs" />
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
