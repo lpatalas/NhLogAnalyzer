@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using Caliburn.Micro;
 
 namespace NhLogAnalyzer
 {
@@ -10,7 +13,7 @@ namespace NhLogAnalyzer
 	{
 		private readonly IStatementLog statementLog;
 
-		public IEnumerable<Statement> Statements
+		public IList<Statement> Statements
 		{
 			get { return statementLog.Statements; }
 		}

@@ -10,7 +10,7 @@
 		<ListBox ItemsSource="{Binding Statements}">
 			<ListBox.ItemTemplate>
 				<DataTemplate DataType="{x:Type local:Statement}">
-					<TextBlock Text="{Binding Timestamp}" />
+					<TextBlock Text="{Binding Id}" />
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>

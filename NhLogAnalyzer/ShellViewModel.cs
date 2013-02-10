@@ -9,7 +9,7 @@ namespace NhLogAnalyzer
 	public class ShellViewModel
 	{
 		private readonly IOpenFileDialog openFileDialog;
-		private readonly IStatementLog statementLoader;
+		private readonly IStatementLog statementLog;
 
 		private readonly StatementListViewModel statementList;
 		public StatementListViewModel StatementList
@@ -17,14 +17,10 @@ namespace NhLogAnalyzer
 			get { return statementList; }
 		}
 
-		public ShellViewModel(IOpenFileDialog openFileDialog, IStatementLog statementLoader)
+		public ShellViewModel(IOpenFileDialog openFileDialog, IStatementLog statementLog)
 		{
 			this.openFileDialog = openFileDialog;
-			this.statementLoader = statementLoader;
-
-			var connectionFactory = new SQLiteConnectionFactory();
-			var statementReader = new StatementReader(connectionFactory);
-			var statementLog = new StatementLog(statementReader);
+			this.statementLog = statementLog;
 			this.statementList = new StatementListViewModel(statementLog);
 		}
 
@@ -32,7 +28,7 @@ namespace NhLogAnalyzer
 		{
 			var result = openFileDialog.Show();
 			if (result.WasConfirmed)
-				statementLoader.Reset(result.FileName);
+				statementLog.Reset(result.FileName);
 		}
 	}
 }

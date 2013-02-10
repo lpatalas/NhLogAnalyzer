@@ -12,12 +12,12 @@ namespace NhLogAnalyzer
 	{
 		public override void Load()
 		{
-			Bind<IEventAggregator>().To<EventAggregator>();
-			Bind<IWindowManager>().To<WindowManager>();
+			Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();
+			Bind<IWindowManager>().To<WindowManager>().InSingletonScope();
 
 			Bind<IConnectionFactory>().To<SQLiteConnectionFactory>();
 			Bind<IOpenFileDialog>().To<OpenFileDialog>();
-			Bind<IStatementLog>().To<StatementLog>();
+			Bind<IStatementLog>().To<StatementLog>().InSingletonScope();
 			Bind<IStatementReader>().To<StatementReader>();
 		}
 	}
