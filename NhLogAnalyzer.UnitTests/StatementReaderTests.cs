@@ -11,17 +11,16 @@ namespace NhLogAnalyzer.UnitTests
 {
 	public class StatementReaderTests
 	{
-		public class ReadMethod
+		public class ReadMethod : InMemoryDatabaseTest
 		{
 			private const string logFileName = @"X:\files.txt";
 
-			private readonly MockDbConnection mockConnection = new MockDbConnection();
 			private readonly MockConnectionFactory connectionFactory = new MockConnectionFactory();
 			private readonly StatementReader statementReader;
 
 			public ReadMethod()
 			{
-				connectionFactory.CreateConnectionImpl = fileName => mockConnection;
+				connectionFactory.CreateConnectionImpl = fileName => this.Connection;
 				statementReader = new StatementReader(connectionFactory);
 			}
 
@@ -30,7 +29,7 @@ namespace NhLogAnalyzer.UnitTests
 			{
 				// Arrange
 				var openedFileName = "";
-				connectionFactory.CreateConnectionImpl = fileName => { openedFileName = fileName; return mockConnection; };
+				connectionFactory.CreateConnectionImpl = fileName => { openedFileName = fileName; return this.Connection; };
 
 				// Act
 				statementReader.Read(logFileName);
@@ -40,52 +39,42 @@ namespace NhLogAnalyzer.UnitTests
 			}
 
 			[Fact]
-			public void Should_open_connection_returned_by_ConnectionFactory()
-			{
-				// Arrange
-
-				// Act
-				statementReader.Read(logFileName);
-
-				// Assert
-				Assert.True(mockConnection.WasOpened);
-			}
-
-			[Fact]
 			public void Should_dispose_connection_returned_by_ConnectionFactory()
 			{
 				// Arrange
 
 				// Act
 				statementReader.Read(logFileName);
-
+				
 				// Assert
-				Assert.True(mockConnection.WasDisposed);
+				Assert.Throws<ObjectDisposedException>(() => Connection.State);
 			}
 
 			[Fact]
-			public void Should_correctly_set_up_command_used_to_read_rows_from_database()
+			public void Should_read_all_rows_from_Statement_table()
 			{
 				// Arrange
-				var wasExecuteReaderCalled = false;
-				string commandText = null;
-				CommandType? commandType = null;
-
-				mockConnection.MockCommand.ExecuteReaderImpl = () =>
+				var expectedStatements = new[]
 				{
-					wasExecuteReaderCalled = true;
-					commandText = mockConnection.MockCommand.CommandText;
-					commandType = mockConnection.MockCommand.CommandType;
-					return null;
+					new Statement(1, "SQL1", "STACK1", DateTime.Now),
+					new Statement(2, "SQL2", "STACK2", DateTime.Now.AddDays(1)),
+					new Statement(3, "SQL3", "STACK3", DateTime.Now.AddDays(2)),
 				};
 
+				InsertStatements(expectedStatements);
+
 				// Act
-				statementReader.Read(logFileName);
+				var statements = statementReader.Read(logFileName);
 
 				// Assert
-				Assert.True(wasExecuteReaderCalled);
-				Assert.Equal("SELECT Id, Timestamp, SqlText, StackTrace FROM Statement", commandText);
-				Assert.Equal(CommandType.Text, commandType);
+				var pairs = statements.Zip(expectedStatements, (actual, expected) => new { actual, expected });
+				foreach (var pair in pairs)
+				{
+					Assert.Equal(pair.expected.Id, pair.actual.Id);
+					Assert.Equal(pair.expected.SqlText, pair.actual.SqlText);
+					Assert.Equal(pair.expected.StackTrace, pair.actual.StackTrace);
+					Assert.Equal(pair.expected.Timestamp.ToString(), pair.actual.Timestamp.ToString()); // TODO: Fix date comparison
+				}
 			}
 		}
 	}

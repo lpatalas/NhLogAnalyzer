@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace NhLogAnalyzer
 {
@@ -22,14 +24,16 @@ namespace NhLogAnalyzer
 		{
 			using (var connection = connectionFactory.CreateConnection(fileName))
 			{
-				connection.Open();
+				if (connection.State != ConnectionState.Open)
+					connection.Open();
 
-				var command = connection.CreateCommand();
-				command.CommandText = "SELECT Id, Timestamp, SqlText, StackTrace FROM Statement";
-				command.CommandType = System.Data.CommandType.Text;
-				command.ExecuteReader();
+				var querySql = "SELECT Id, Timestamp, SqlText, StackTrace FROM Statement";
+				var statements = connection.Query(querySql)
+					.Select(row => new Statement((int)row.Id, (string)row.SqlText, (string)row.StackTrace, (DateTime)row.Timestamp))
+					.ToList()
+					.AsReadOnly();
 
-				return Enumerable.Empty<Statement>();
+				return statements;
 			}
 		}
 	}

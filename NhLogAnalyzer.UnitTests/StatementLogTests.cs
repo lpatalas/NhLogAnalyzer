@@ -20,8 +20,8 @@ namespace NhLogAnalyzer.UnitTests
 				// Arrange
 				var statements = new[]
 				{
-					new Statement(),
-					new Statement()
+					new Statement(1, "SQL1", "STACK1", DateTime.Now),
+					new Statement(2, "SQL2", "STACK2", DateTime.Now.AddDays(1)),
 				};
 
 				var statementReader = new MockStatementReader();
