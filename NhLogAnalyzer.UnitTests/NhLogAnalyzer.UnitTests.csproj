@@ -70,6 +70,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellViewModelTests.cs" />
     <Compile Include="SQLiteConnectionFactoryTests.cs" />
+    <Compile Include="StatementListViewModelTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="StatementLogTests.cs" />
     <Compile Include="StatementReaderTests.cs" />
   </ItemGroup>

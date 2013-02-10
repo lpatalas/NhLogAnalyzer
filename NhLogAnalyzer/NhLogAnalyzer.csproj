@@ -95,9 +95,20 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="SQLiteConnectionFactory.cs" />
     <Compile Include="Statement.cs" />
+    <Compile Include="StatementListView.xaml.cs">
+      <DependentUpon>StatementListView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StatementListViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="StatementLog.cs" />
     <Compile Include="StatementReader.cs" />
     <Page Include="ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatementListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
