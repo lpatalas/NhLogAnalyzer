@@ -69,6 +69,7 @@
     </ApplicationDefinition>
     <Compile Include="IOpenFileDialog.cs" />
     <Compile Include="IStatementLog.cs" />
+    <Compile Include="IStatementReader.cs" />
     <Compile Include="OpenFileResult.cs" />
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -79,6 +80,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Statement.cs" />
+    <Compile Include="StatementLog.cs" />
     <Page Include="ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -57,8 +57,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Fakes\MockStatementLog.cs" />
+    <Compile Include="Fakes\MockStatementReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellViewModelTests.cs" />
+    <Compile Include="StatementLogTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
