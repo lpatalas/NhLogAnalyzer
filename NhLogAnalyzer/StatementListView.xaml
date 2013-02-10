@@ -10,7 +10,7 @@
 		<ListBox ItemsSource="{Binding Statements}">
 			<ListBox.ItemTemplate>
 				<DataTemplate DataType="{x:Type local:Statement}">
-					<TextBlock Text="{Binding Id}" />
+					<TextBlock Text="{Binding SingleLineSqlText}" TextTrimming="CharacterEllipsis" />
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>

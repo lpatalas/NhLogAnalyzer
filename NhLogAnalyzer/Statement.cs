@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace NhLogAnalyzer
@@ -32,12 +33,27 @@ namespace NhLogAnalyzer
 			get { return timestamp; }
 		}
 
+		private readonly string singleLineSqlText;
+		public string SingleLineSqlText
+		{
+			get { return singleLineSqlText; }
+		}
+
 		public Statement(int id, string sqlText, string stackTrace, DateTime timestamp)
 		{
 			this.id = id;
 			this.sqlText = sqlText;
 			this.stackTrace = stackTrace;
 			this.timestamp = timestamp;
+			this.singleLineSqlText = CreateSingleLineSqlText(sqlText);
+		}
+
+		private static readonly Regex whitespaceRegex = new Regex(@"[ \t\r\n]+");
+
+		private static string CreateSingleLineSqlText(string sqlText)
+		{
+			var trimmedSql = sqlText.Trim();
+			return whitespaceRegex.Replace(trimmedSql, " ");
 		}
 	}
 }

@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="StatementLogTests.cs" />
     <Compile Include="StatementReaderTests.cs" />
+    <Compile Include="StatementTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
