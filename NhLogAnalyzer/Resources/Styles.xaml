@@ -19,14 +19,12 @@
 	<Style x:Key="StackTraceStyle" BasedOn="{StaticResource DefaultControlStyle}" TargetType="{x:Type TextBox}">
 	</Style>
 
-	<Style x:Key="StatementListStyle" BasedOn="{StaticResource DefaultControlStyle}" TargetType="{x:Type ListBox}">
+	<Style TargetType="{x:Type Window}">
+		<Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}" />
+		<Setter Property="OverridesDefaultStyle" Value="True" />
 	</Style>
 
-	<Style x:Key="{x:Type Window}" TargetType="{x:Type Window}">
-		<Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
-	</Style>
-
-	<Style x:Key="{x:Type GridSplitter}" TargetType="{x:Type GridSplitter}">
-		<Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+	<Style TargetType="{x:Type GridSplitter}">
+		<Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}" />
 	</Style>
 </ResourceDictionary>

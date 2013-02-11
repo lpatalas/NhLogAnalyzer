@@ -133,6 +133,10 @@
     <Compile Include="StatementLog.cs" />
     <Compile Include="StatementReader.cs" />
     <Compile Include="XshdConverter.cs" />
+    <Page Include="Resources\ExpressionDarkTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

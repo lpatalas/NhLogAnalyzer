@@ -3,20 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ShellView"
 		Height="700"
-		Width="1000">
+		Width="1000"
+		Background="{StaticResource WindowBackgroundBrush}">
 	<DockPanel>
-		<ToolBar DockPanel.Dock="Top">
-			<Button x:Name="OpenFile">Open</Button>
-		</ToolBar>
+		<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+			<Button x:Name="OpenFile" Margin="3" Padding="10,5,10,5">Open</Button>
+		</StackPanel>
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="300" />
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
-			<ContentControl x:Name="StatementList" Grid.Column="0" />
+			<ContentControl x:Name="StatementList" Grid.Column="0" Margin="3,3,0,3" />
 			<GridSplitter Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="3" />
-			<ContentControl x:Name="StatementDetails" Grid.Column="2" />
+			<ContentControl x:Name="StatementDetails" Grid.Column="2" Margin="0,3,3,3" />
 		</Grid>
 	</DockPanel>
 </Window>
