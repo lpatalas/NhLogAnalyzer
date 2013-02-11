@@ -18,6 +18,8 @@
 					   Style="{StaticResource SqlEditorStyle}"
 					   SyntaxHighlighting="{Binding Source='SqlSyntaxDefinition', Converter={x:Static local:XshdConverter.Default}}" />
 		<GridSplitter Grid.Row="1" Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-		<TextBox Grid.Row="2" Text="{Binding Statement.StackTrace, Mode=OneWay}" />
+		<TextBox Grid.Row="2"
+				 Style="{StaticResource StackTraceStyle}"
+				 Text="{Binding Statement.StackTrace, Mode=OneWay}" />
 	</Grid>
 </UserControl>

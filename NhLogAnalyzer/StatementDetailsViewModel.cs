@@ -33,7 +33,6 @@ namespace NhLogAnalyzer
 
 			this.statementList = statementList;
 			statementList.PropertyChanged += statementList_PropertyChanged;
-			TextEditor e;
 			UpdateDocument();
 		}
 
