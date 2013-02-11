@@ -1,7 +1,6 @@
 ﻿<Window x:Class="NhLogAnalyzer.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		xmlns:ae="http://icsharpcode.net/sharpdevelop/avalonedit"
         Title="ShellView"
 		Height="700"
 		Width="1000">

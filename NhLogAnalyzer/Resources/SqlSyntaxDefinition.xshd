@@ -1,0 +1,165 @@
+﻿<?xml version="1.0"?>
+<SyntaxDefinition name="sql" extensions=".sql" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+	<Color name="String" foreground="#f88" />
+	<Color name="QuotedIdentitifer" foreground="#f84" />
+	<Color name="Comment" foreground="#888" />
+	<Color name="Punctuation" foreground="#fff" />
+	<Color name="KeywordStandard" foreground="#ff8" />
+	<RuleSet ignoreCase="true">
+		<Span color="String" multiline="true" >
+			<Begin>'</Begin>
+			<End>'</End>
+		</Span>
+		<Span color="QuotedIdentitifer" multiline="true">
+			<Begin>"</Begin>
+			<End>"</End>
+		</Span>
+		<Span color="QuotedIdentitifer" multiline="true">
+			<Begin>\[</Begin>
+			<End>\]</End>
+		</Span>
+		<!-- span for escape sequences -->
+		<Span  color="Comment" begin="--" end="\n"/>
+		<Span color="Comment"  multiline="true">
+			<Begin>/\*</Begin>
+			<End>\*/</End>
+		</Span>
+		<Keywords color="KeywordStandard">
+			<Word>INNER</Word>
+			<Word>JOIN</Word>
+			<Word>LEFT</Word>
+			<Word>RIGHT</Word>
+			<Word>OUTER</Word>
+			<Word>UNION</Word>
+		</Keywords>
+		<Keywords color="KeywordStandard">
+			<Word>AS</Word>
+		</Keywords>
+		<Keywords color="KeywordStandard">
+			<Word>AND</Word>
+			<Word>OR</Word>
+			<Word>LIKE</Word>
+		</Keywords>
+		<Keywords color="KeywordStandard">
+			<Word>TOP</Word>
+			<Word>LIMIT</Word>
+			<Word>OPENDATASOURCE</Word>
+			<Word>GO</Word>
+		</Keywords>
+		<Keywords color="KeywordStandard">
+			<Word>DROP</Word>
+			<Word>DELETE</Word>
+			<Word>TRUNCATE</Word>
+		</Keywords>
+		<Keywords color="KeywordStandard">
+			<Word>BEGIN</Word>
+			<Word>END</Word>
+			<Word>EXEC</Word>
+			<Word>CREATE</Word>
+			<Word>COMMIT</Word>
+			<Word>RAISERROR</Word>
+			<Word>ROLLBACK</Word>
+			<Word>TRAN</Word>
+			<Word>TRANSACTION</Word>
+			<Word>USE</Word>
+			<Word>USER</Word>
+			<Word>VIEW</Word>
+		</Keywords>
+		<Keywords color="KeywordStandard">
+			<Word>ADD</Word>
+			<Word>ALL</Word>
+			<Word>ANY</Word>
+			<Word>ASC</Word>
+			<Word>BETWEEN</Word>
+			<Word>BREAK</Word>
+			<Word>BY</Word>
+			<Word>CASCADE</Word>
+			<Word>CASE</Word>
+			<Word>CHECK</Word>
+			<Word>CHECKPOINT</Word>
+			<Word>CLOSE</Word>
+			<Word>COALESCE</Word>
+			<Word>COLLATE</Word>
+			<Word>COLUMN</Word>
+			<Word>COMPUTE</Word>
+			<Word>CONSTRAINT</Word>
+			<Word>CONTAINS</Word>
+			<Word>CONTINUE</Word>
+			<Word>CONVERT</Word>
+			<Word>CROSS</Word>
+			<Word>CURSOR</Word>
+			<Word>DECLARE</Word>
+			<Word>DEFAULT</Word>
+			<Word>DESC</Word>
+			<Word>DISTINCT</Word>
+			<Word>DOUBLE</Word>
+			<Word>ELSE</Word>
+			<Word>ESCAPE</Word>
+			<Word>EXCEPT</Word>
+			<Word>EXECUTE</Word>
+			<Word>EXISTS</Word>
+			<Word>EXIT</Word>
+			<Word>FETCH</Word>
+			<Word>FOR</Word>
+			<Word>FROM</Word>
+			<Word>FULL</Word>
+			<Word>FUNCTION</Word>
+			<Word>GOTO</Word>
+			<Word>GROUP</Word>
+			<Word>HAVING</Word>
+			<Word>IDENTITY</Word>
+			<Word>IDENTITY_INSERT</Word>
+			<Word>IDENTITYCOL</Word>
+			<Word>IF</Word>
+			<Word>IN</Word>
+			<Word>INSERT</Word>
+			<Word>INTO</Word>
+			<Word>IS</Word>
+			<Word>KEY</Word>
+			<Word>NOCHECK</Word>
+			<Word>NOT</Word>
+			<Word>NULL</Word>
+			<Word>NULLIF</Word>
+			<Word>OF</Word>
+			<Word>OFF</Word>
+			<Word>OFFSETS</Word>
+			<Word>ON</Word>
+			<Word>OPEN</Word>
+			<Word>ORDER</Word>
+			<Word>OVER</Word>
+			<Word>PRECISION</Word>
+			<Word>PROC</Word>
+			<Word>PROCEDURE</Word>
+			<Word>PUBLIC</Word>
+			<Word>READ</Word>
+			<Word>READTEXT</Word>
+			<Word>REFERENCES</Word>
+			<Word>RESTORE</Word>
+			<Word>RESTRICT</Word>
+			<Word>RETURN</Word>
+			<Word>ROWCOUNT</Word>
+			<Word>RULE</Word>
+			<Word>SAVE</Word>
+			<Word>SELECT</Word>
+			<Word>SET</Word>
+			<Word>SETUSER</Word>
+			<Word>SOME</Word>
+			<Word>TABLE</Word>
+			<Word>THEN</Word>
+			<Word>TO</Word>
+			<Word>TRIGGER</Word>
+			<Word>UNIQUE</Word>
+			<Word>UPDATE</Word>
+			<Word>VALUES</Word>
+			<Word>VARYING</Word>
+			<Word>WAITFOR</Word>
+			<Word>WHEN</Word>
+			<Word>WHERE</Word>
+			<Word>WHILE</Word>
+			<Word>WITH</Word>
+		</Keywords>
+		<Rule color="Punctuation">
+			[?,.;(){}+\-/%*&lt;&gt;^+~!|&amp;]+
+		</Rule>
+	</RuleSet>
+</SyntaxDefinition>

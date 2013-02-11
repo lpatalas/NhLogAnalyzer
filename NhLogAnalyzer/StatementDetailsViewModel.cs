@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Document;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 
 namespace NhLogAnalyzer
 {
@@ -31,7 +33,7 @@ namespace NhLogAnalyzer
 
 			this.statementList = statementList;
 			statementList.PropertyChanged += statementList_PropertyChanged;
-
+			TextEditor e;
 			UpdateDocument();
 		}
 
