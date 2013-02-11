@@ -2,18 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:ae="http://icsharpcode.net/sharpdevelop/avalonedit">
 
-	<Style x:Key="DefaultControlStyle" TargetType="{x:Type Control}">
-		<Setter Property="FontFamily" Value="Consolas" />
-		<Setter Property="FontSize" Value="14" />
-		<Setter Property="FontWeight" Value="Normal" />
-	</Style>
-
-	<Style x:Key="SqlEditorStyle" BasedOn="{StaticResource DefaultControlStyle}" TargetType="{x:Type ae:TextEditor}">
+	<Style x:Key="SqlEditorStyle" TargetType="{x:Type ae:TextEditor}">
 		<Setter Property="Background" Value="{StaticResource ControlBackgroundBrush}" />
+		<Setter Property="FontFamily" Value="Consolas" />
 		<Setter Property="FontSize" Value="18" />
 		<Setter Property="Foreground" Value="{StaticResource TextBrush}" />
 	</Style>
 
+	<Style x:Key="StackTraceStyle" BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+		<Setter Property="FontFamily" Value="Consolas" />
+		<Setter Property="FontSize" Value="16" />
+	</Style>
 
 	<Style x:Key="MainWindowStyle" TargetType="{x:Type Window}">
 		<Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}" />
