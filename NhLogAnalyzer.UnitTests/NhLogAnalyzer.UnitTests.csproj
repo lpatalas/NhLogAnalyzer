@@ -111,7 +111,6 @@
     <Compile Include="Infrastructure\SQLiteConnectionFactoryTests.cs" />
     <Compile Include="Infrastructure\StatementLogTests.cs" />
     <Compile Include="Infrastructure\StatementReaderTests.cs" />
-    <Compile Include="Infrastructure\StatementTests.cs" />
     <Compile Include="UI\ShellViewModelTests.cs" />
     <Compile Include="UI\StatementDetailsViewModelTests.cs" />
     <Compile Include="UI\StatementListViewModelTests.cs" />

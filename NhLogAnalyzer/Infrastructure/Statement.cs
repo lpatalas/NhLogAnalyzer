@@ -15,22 +15,26 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return id; }
 		}
 
+		private readonly string fullSql;
+		public string FullSql
+		{
+			get { return fullSql; }
+		}
+
 		private readonly string shortSql;
 		public string ShortSql
 		{
 			get { return shortSql; }
 		}
 
-		private readonly string sqlText;
 		public string SqlText
 		{
-			get { return sqlText; }
+			get { return string.Empty; }
 		}
 
-		private readonly string stackTrace;
 		public string StackTrace
 		{
-			get { return stackTrace; }
+			get { return string.Empty; }
 		}
 
 		private readonly DateTime timestamp;
@@ -39,26 +43,17 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return timestamp; }
 		}
 
-		private readonly string singleLineSqlText;
 		public string SingleLineSqlText
 		{
-			get { return singleLineSqlText; }
+			get { return string.Empty; }
 		}
 
-		public Statement(int id, string shortSql, DateTime timestamp)
+		public Statement(int id, string fullSql, string shortSql, DateTime timestamp)
 		{
 			this.id = id;
+			this.fullSql = fullSql;
 			this.shortSql = shortSql;
 			this.timestamp = timestamp;
-		}
-
-		public Statement(int id, string sqlText, string stackTrace, DateTime timestamp)
-		{
-			this.id = id;
-			this.sqlText = sqlText;
-			this.stackTrace = stackTrace;
-			this.timestamp = timestamp;
-			this.singleLineSqlText = CreateSingleLineSqlText(sqlText);
 		}
 
 		private static readonly Regex whitespaceRegex = new Regex(@"[ \t\r\n]+");

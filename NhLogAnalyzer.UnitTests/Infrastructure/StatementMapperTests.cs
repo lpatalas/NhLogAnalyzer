@@ -19,7 +19,7 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			{
 				// Arrange
 				var input = new StatementRow(1, string.Empty, string.Empty, new DateTime(2013, 2, 12));
-				var statementMapper = new StatementMapper(dummySqlFormatter);
+				var statementMapper = new StatementMapper(dummySqlFormatter, dummySqlFormatter);
 
 				// Act
 				var output = statementMapper.Map(input);
@@ -36,13 +36,29 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 				var inputRow = new StatementRow(1, "SQL", string.Empty, DateTime.Now);
 				var shortSqlFormatter = new MockSqlFormatter();
 				shortSqlFormatter.FormatImpl = input => "Short" + input;
-				var statementMapper = new StatementMapper(shortSqlFormatter);
+				var statementMapper = new StatementMapper(dummySqlFormatter, shortSqlFormatter);
 
 				// Act
 				var output = statementMapper.Map(inputRow);
 
 				// Assert
 				Assert.Equal("ShortSQL", output.ShortSql);
+			}
+
+			[Fact]
+			public void Should_use_fullSqlFormatter_to_format_FullSql_property()
+			{
+				// Arrange
+				var inputRow = new StatementRow(1, "SQL", string.Empty, DateTime.Now);
+				var fullSqlFormatter = new MockSqlFormatter();
+				fullSqlFormatter.FormatImpl = input => "Full" + input;
+				var statementMapper = new StatementMapper(fullSqlFormatter, dummySqlFormatter);
+
+				// Act
+				var output = statementMapper.Map(inputRow);
+
+				// Assert
+				Assert.Equal("FullSQL", output.FullSql);
 			}
 		}
 	}
