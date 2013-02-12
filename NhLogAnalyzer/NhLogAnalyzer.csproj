@@ -105,6 +105,7 @@
     <Compile Include="Infrastructure\IConnectionFactory.cs" />
     <Compile Include="Infrastructure\IOpenFileDialog.cs" />
     <Compile Include="Infrastructure\ISqlFormatter.cs" />
+    <Compile Include="Infrastructure\IStackTraceParser.cs" />
     <Compile Include="Infrastructure\IStatementList.cs" />
     <Compile Include="Infrastructure\IStatementLog.cs" />
     <Compile Include="Infrastructure\IStatementMapper.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Infrastructure\ShortSqlFormatter.cs" />
     <Compile Include="Infrastructure\SQLiteConnectionFactory.cs" />
+    <Compile Include="Infrastructure\StackFrame.cs" />
     <Compile Include="Infrastructure\Statement.cs" />
     <Compile Include="Infrastructure\StatementLog.cs" />
     <Compile Include="Infrastructure\StatementMapper.cs" />

@@ -27,6 +27,12 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return shortSql; }
 		}
 
+		private readonly IList<StackFrame> stackFrames;
+		public IList<StackFrame> StackFrames
+		{
+			get { return stackFrames; }
+		}
+
 		public string StackTrace
 		{
 			get { return string.Empty; }
@@ -39,10 +45,16 @@ namespace NhLogAnalyzer.Infrastructure
 		}
 
 		public Statement(int id, string fullSql, string shortSql, DateTime timestamp)
+			: this(id, fullSql, shortSql, timestamp, new List<StackFrame>())
+		{
+		}
+
+		public Statement(int id, string fullSql, string shortSql, DateTime timestamp, IList<StackFrame> stackFrames)
 		{
 			this.id = id;
 			this.fullSql = fullSql;
 			this.shortSql = shortSql;
+			this.stackFrames = stackFrames;
 			this.timestamp = timestamp;
 		}
 	}

@@ -13,13 +13,14 @@ namespace NhLogAnalyzer.UnitTests.Fakes
 		public class MapMethod
 		{
 			private readonly MockSqlFormatter dummySqlFormatter = new MockSqlFormatter();
+			private readonly MockStackTraceParser dummyStackTraceParser = new MockStackTraceParser();
 
 			[Fact]
 			public void Should_copy_Id_and_Timestamp_properties_to_returned_row()
 			{
 				// Arrange
 				var input = new StatementRow(1, string.Empty, string.Empty, new DateTime(2013, 2, 12));
-				var statementMapper = new StatementMapper(dummySqlFormatter, dummySqlFormatter);
+				var statementMapper = new StatementMapper(dummySqlFormatter, dummySqlFormatter, dummyStackTraceParser);
 
 				// Act
 				var output = statementMapper.Map(input);
@@ -36,7 +37,7 @@ namespace NhLogAnalyzer.UnitTests.Fakes
 				var inputRow = new StatementRow(1, "SQL", string.Empty, DateTime.Now);
 				var shortSqlFormatter = new MockSqlFormatter();
 				shortSqlFormatter.FormatImpl = input => "Short" + input;
-				var statementMapper = new StatementMapper(dummySqlFormatter, shortSqlFormatter);
+				var statementMapper = new StatementMapper(dummySqlFormatter, shortSqlFormatter, dummyStackTraceParser);
 
 				// Act
 				var output = statementMapper.Map(inputRow);
@@ -52,13 +53,38 @@ namespace NhLogAnalyzer.UnitTests.Fakes
 				var inputRow = new StatementRow(1, "SQL", string.Empty, DateTime.Now);
 				var fullSqlFormatter = new MockSqlFormatter();
 				fullSqlFormatter.FormatImpl = input => "Full" + input;
-				var statementMapper = new StatementMapper(fullSqlFormatter, dummySqlFormatter);
+				var statementMapper = new StatementMapper(fullSqlFormatter, dummySqlFormatter, dummyStackTraceParser);
 
 				// Act
 				var output = statementMapper.Map(inputRow);
 
 				// Assert
 				Assert.Equal("FullSQL", output.FullSql);
+			}
+
+			[Fact]
+			public void Should_use_stack_trace_parser_to_extract_stack_frames_from_StrackTrace_column()
+			{
+				// Arrange
+				var stackTraceParser = new MockStackTraceParser();
+				stackTraceParser.ParseImpl = input =>
+				{
+					return new[]
+					{
+						new StackFrame(input + "Method", input + "File", 0, 0),
+					};
+				};
+
+				var inputRow = new StatementRow { StackTrace = "Stack" };
+				var statementMapper = new StatementMapper(dummySqlFormatter, dummySqlFormatter, stackTraceParser);
+
+				// Act
+				var output = statementMapper.Map(inputRow);
+
+				// Assert
+				Assert.Equal(1, output.StackFrames.Count);
+				Assert.Equal("StackMethod", output.StackFrames[0].Method);
+				Assert.Equal("StackFile", output.StackFrames[0].FileName);
 			}
 		}
 	}

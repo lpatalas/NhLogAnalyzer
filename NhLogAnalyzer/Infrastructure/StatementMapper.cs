@@ -10,16 +10,23 @@ namespace NhLogAnalyzer.Infrastructure
 	{
 		private readonly ISqlFormatter fullSqlFormatter;
 		private readonly ISqlFormatter shortSqlFormatter;
+		private readonly IStackTraceParser stackTraceParser;
 
-		public StatementMapper(ISqlFormatter fullSqlFormatter, ISqlFormatter shortSqlFormatter)
+		public StatementMapper(
+			ISqlFormatter fullSqlFormatter,
+			ISqlFormatter shortSqlFormatter,
+			IStackTraceParser stackTraceParser)
 		{
 			if (fullSqlFormatter == null)
 				throw new ArgumentNullException("fullSqlFormatter");
 			if (shortSqlFormatter == null)
 				throw new ArgumentNullException("shortSqlFormatter");
+			if (stackTraceParser == null)
+				throw new ArgumentNullException("stackTraceParser");
 
 			this.fullSqlFormatter = fullSqlFormatter;
 			this.shortSqlFormatter = shortSqlFormatter;
+			this.stackTraceParser = stackTraceParser;
 		}
 
 		public Statement Map(StatementRow row)
@@ -28,7 +35,8 @@ namespace NhLogAnalyzer.Infrastructure
 				row.Id,
 				fullSqlFormatter.Format(row.SqlText),
 				shortSqlFormatter.Format(row.SqlText),
-				row.Timestamp);
+				row.Timestamp,
+				stackTraceParser.Parse(row.StackTrace));
 		}
 	}
 }

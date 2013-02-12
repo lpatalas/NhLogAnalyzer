@@ -99,6 +99,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Fakes\MockSqlFormatter.cs" />
+    <Compile Include="Fakes\MockStackTraceParser.cs" />
     <Compile Include="Fakes\MockStatementList.cs" />
     <Compile Include="Fakes\MockStatementLog.cs" />
     <Compile Include="Fakes\MockStatementReader.cs" />
