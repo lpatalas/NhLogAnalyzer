@@ -120,6 +120,7 @@
     <Compile Include="Infrastructure\ShortSqlFormatter.cs" />
     <Compile Include="Infrastructure\SQLiteConnectionFactory.cs" />
     <Compile Include="Infrastructure\StackFrame.cs" />
+    <Compile Include="Infrastructure\StackTraceParser.cs" />
     <Compile Include="Infrastructure\Statement.cs" />
     <Compile Include="Infrastructure\StatementLog.cs" />
     <Compile Include="Infrastructure\StatementMapper.cs" />
