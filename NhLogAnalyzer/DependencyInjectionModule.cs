@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using NhLogAnalyzer.Services;
 using Ninject.Modules;
 
 namespace NhLogAnalyzer

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NhLogAnalyzer
+namespace NhLogAnalyzer.Services
 {
 	public class SQLiteConnectionFactory : IConnectionFactory
 	{

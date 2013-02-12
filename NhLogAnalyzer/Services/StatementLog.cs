@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 
-namespace NhLogAnalyzer
+namespace NhLogAnalyzer.Services
 {
 	public class StatementLog : IStatementLog
 	{

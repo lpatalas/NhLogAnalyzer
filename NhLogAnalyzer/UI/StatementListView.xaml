@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:local="clr-namespace:NhLogAnalyzer"
+			 xmlns:svc="clr-namespace:NhLogAnalyzer.Services"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
 		<ListBox ItemsSource="{Binding Statements}" SelectedItem="{Binding SelectedStatement}">
 			<ListBox.ItemTemplate>
-				<DataTemplate DataType="{x:Type local:Statement}">
+				<DataTemplate DataType="{x:Type svc:Statement}">
 					<TextBlock Text="{Binding SingleLineSqlText}" TextTrimming="CharacterEllipsis" />
 				</DataTemplate>
 			</ListBox.ItemTemplate>
