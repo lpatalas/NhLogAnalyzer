@@ -15,6 +15,12 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return id; }
 		}
 
+		private readonly string shortSql;
+		public string ShortSql
+		{
+			get { return shortSql; }
+		}
+
 		private readonly string sqlText;
 		public string SqlText
 		{
@@ -37,6 +43,13 @@ namespace NhLogAnalyzer.Infrastructure
 		public string SingleLineSqlText
 		{
 			get { return singleLineSqlText; }
+		}
+
+		public Statement(int id, string shortSql, DateTime timestamp)
+		{
+			this.id = id;
+			this.shortSql = shortSql;
+			this.timestamp = timestamp;
 		}
 
 		public Statement(int id, string sqlText, string stackTrace, DateTime timestamp)

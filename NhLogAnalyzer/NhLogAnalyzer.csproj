@@ -103,6 +103,7 @@
     <Compile Include="DependencyInjectionModule.cs" />
     <Compile Include="Infrastructure\IConnectionFactory.cs" />
     <Compile Include="Infrastructure\IOpenFileDialog.cs" />
+    <Compile Include="Infrastructure\ISqlFormatter.cs" />
     <Compile Include="Infrastructure\IStatementList.cs" />
     <Compile Include="Infrastructure\IStatementLog.cs" />
     <Compile Include="Infrastructure\IStatementMapper.cs" />
