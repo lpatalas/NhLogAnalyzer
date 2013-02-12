@@ -21,7 +21,7 @@ namespace NhLogAnalyzer.Infrastructure
 			while (line != null)
 			{
 				var methodName = ParseMethodName(line);
-				var fileInfo = ParseFileName(line);
+				var fileInfo = ParseSourceFileInfo(line);
 
 				stackFrames.Add(new StackFrame(
 					methodName,
@@ -44,9 +44,9 @@ namespace NhLogAnalyzer.Infrastructure
 			return line;
 		}
 
-		private FileLocationInfo ParseFileName(string line)
+		private SourceFileInfo ParseSourceFileInfo(string line)
 		{
-			var result = new FileLocationInfo { FileName = string.Empty };
+			var result = new SourceFileInfo { FileName = string.Empty };
 
 			var startIndex = line.IndexOf(' ');
 			if (startIndex > 0)
@@ -75,7 +75,7 @@ namespace NhLogAnalyzer.Infrastructure
 			return offset;
 		}
 
-		private struct FileLocationInfo
+		private struct SourceFileInfo
 		{
 			public string FileName;
 			public FileOffset Offset;
