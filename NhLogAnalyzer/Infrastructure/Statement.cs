@@ -27,11 +27,6 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return shortSql; }
 		}
 
-		public string SqlText
-		{
-			get { return string.Empty; }
-		}
-
 		public string StackTrace
 		{
 			get { return string.Empty; }
@@ -43,25 +38,12 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return timestamp; }
 		}
 
-		public string SingleLineSqlText
-		{
-			get { return string.Empty; }
-		}
-
 		public Statement(int id, string fullSql, string shortSql, DateTime timestamp)
 		{
 			this.id = id;
 			this.fullSql = fullSql;
 			this.shortSql = shortSql;
 			this.timestamp = timestamp;
-		}
-
-		private static readonly Regex whitespaceRegex = new Regex(@"[ \t\r\n]+");
-
-		private static string CreateSingleLineSqlText(string sqlText)
-		{
-			var trimmedSql = sqlText.Trim();
-			return whitespaceRegex.Replace(trimmedSql, " ");
 		}
 	}
 }
