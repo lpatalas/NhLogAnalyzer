@@ -32,6 +32,19 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			}
 
 			[Fact]
+			public void Should_return_read_only_list()
+			{
+				// Arrange
+				var input = "method file:1:2";
+
+				// Act
+				var output = stackTraceParser.Parse(input);
+
+				// Assert
+				Assert.True(output.IsReadOnly);
+			}
+
+			[Fact]
 			public void Should_treat_each_line_as_single_stack_frame()
 			{
 				// Arrange

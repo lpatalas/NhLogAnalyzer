@@ -32,7 +32,7 @@ namespace NhLogAnalyzer.Infrastructure
 				line = reader.ReadLine();
 			}
 
-			return stackFrames;
+			return stackFrames.AsReadOnly();
 		}
 
 		private string ParseMethodName(string line)
