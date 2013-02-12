@@ -40,15 +40,5 @@ namespace NhLogAnalyzer.Infrastructure
 				&& this.Timestamp == other.Timestamp;
 
 		}
-
-		private static bool DateTimeEqualsWithSecondPrecision(DateTime first, DateTime second)
-		{
-			return RoundToSeconds(first) == RoundToSeconds(second);
-		}
-
-		private static DateTime RoundToSeconds(DateTime dateTime)
-		{
-			return new DateTime(dateTime.Ticks / 10000000);
-		}
 	}
 }
