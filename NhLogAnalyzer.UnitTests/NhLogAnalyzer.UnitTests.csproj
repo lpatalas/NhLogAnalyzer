@@ -98,11 +98,11 @@
     <Compile Include="Fakes\MockOpenFileDialog.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Fakes\MockSqlFormatter.cs" />
     <Compile Include="Fakes\MockStatementList.cs" />
     <Compile Include="Fakes\MockStatementLog.cs" />
     <Compile Include="Fakes\MockStatementReader.cs" />
     <Compile Include="Fakes\MockStatementMapper.cs" />
-    <Compile Include="Infrastructure\MockSqlFormatter.cs" />
     <Compile Include="Infrastructure\StatementMapperTests.cs">
       <SubType>Code</SubType>
     </Compile>

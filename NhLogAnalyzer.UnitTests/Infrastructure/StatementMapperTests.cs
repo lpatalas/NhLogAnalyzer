@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NhLogAnalyzer.Infrastructure;
 using Xunit;
 
-namespace NhLogAnalyzer.UnitTests.Infrastructure
+namespace NhLogAnalyzer.UnitTests.Fakes
 {
 	public class StatementMapperTests
 	{

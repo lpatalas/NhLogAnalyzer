@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NhLogAnalyzer.Infrastructure;
 
-namespace NhLogAnalyzer.UnitTests.Infrastructure
+namespace NhLogAnalyzer.UnitTests.Fakes
 {
 	public class MockSqlFormatter : ISqlFormatter
 	{
