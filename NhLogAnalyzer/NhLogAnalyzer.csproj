@@ -117,6 +117,7 @@
     <Compile Include="Infrastructure\SQLiteConnectionFactory.cs" />
     <Compile Include="Infrastructure\Statement.cs" />
     <Compile Include="Infrastructure\StatementLog.cs" />
+    <Compile Include="Infrastructure\StatementMapper.cs" />
     <Compile Include="Infrastructure\StatementReader.cs" />
     <Compile Include="Infrastructure\StatementRow.cs" />
     <Compile Include="UI\ShellView.xaml.cs">
