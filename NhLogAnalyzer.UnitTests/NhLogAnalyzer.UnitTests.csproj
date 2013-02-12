@@ -103,15 +103,13 @@
     <Compile Include="Fakes\MockStatementReader.cs" />
     <Compile Include="InMemoryDatabaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShellViewModelTests.cs" />
     <Compile Include="SQLiteConnectionFactoryTests.cs" />
-    <Compile Include="StatementDetailsViewModelTests.cs" />
-    <Compile Include="StatementListViewModelTests.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="StatementLogTests.cs" />
     <Compile Include="StatementReaderTests.cs" />
     <Compile Include="StatementTests.cs" />
+    <Compile Include="UI\ShellViewModelTests.cs" />
+    <Compile Include="UI\StatementDetailsViewModelTests.cs" />
+    <Compile Include="UI\StatementListViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
