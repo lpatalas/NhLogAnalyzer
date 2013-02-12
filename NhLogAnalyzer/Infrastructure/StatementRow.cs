@@ -37,7 +37,7 @@ namespace NhLogAnalyzer.Infrastructure
 				&& this.Id == other.Id
 				&& string.Equals(this.SqlText, other.SqlText, StringComparison.Ordinal)
 				&& string.Equals(this.StackTrace, other.StackTrace, StringComparison.Ordinal)
-				&& DateTimeEqualsWithSecondPrecision(this.Timestamp, other.Timestamp);
+				&& this.Timestamp == other.Timestamp;
 
 		}
 

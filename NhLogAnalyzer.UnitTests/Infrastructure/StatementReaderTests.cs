@@ -58,9 +58,9 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 				// Arrange
 				var inputRows = new[]
 				{
-					new StatementRow(1, "SQL1", "STACK1", DateTime.Now),
-					new StatementRow(2, "SQL2", "STACK2", DateTime.Now.AddDays(1)),
-					new StatementRow(3, "SQL3", "STACK3", DateTime.Now.AddDays(2)),
+					new StatementRow(1, "SQL1", "STACK1", new DateTime(2013, 2, 11)),
+					new StatementRow(2, "SQL2", "STACK2", new DateTime(2013, 2, 12)),
+					new StatementRow(3, "SQL3", "STACK3", new DateTime(2013, 2, 13)),
 				};
 
 				InsertStatements(inputRows);
