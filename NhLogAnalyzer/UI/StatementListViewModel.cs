@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
 
-namespace NhLogAnalyzer
+namespace NhLogAnalyzer.UI
 {
 	public class StatementListViewModel : PropertyChangedBase, IStatementList
 	{

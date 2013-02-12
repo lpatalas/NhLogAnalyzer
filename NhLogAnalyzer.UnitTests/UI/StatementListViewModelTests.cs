@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NhLogAnalyzer.UI;
 using NhLogAnalyzer.UnitTests.Fakes;
 using Xunit;
 
-namespace NhLogAnalyzer.UnitTests
+namespace NhLogAnalyzer.UnitTests.UI
 {
 	public class StatementListViewModelTests
 	{
