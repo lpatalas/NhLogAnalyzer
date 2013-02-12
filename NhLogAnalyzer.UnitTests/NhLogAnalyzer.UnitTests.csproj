@@ -103,6 +103,7 @@
     <Compile Include="Fakes\MockStatementLog.cs" />
     <Compile Include="Fakes\MockStatementReader.cs" />
     <Compile Include="Fakes\MockStatementMapper.cs" />
+    <Compile Include="Infrastructure\FullSqlFormatterTests.cs" />
     <Compile Include="Infrastructure\ShortSqlFormatterTests.cs" />
     <Compile Include="Infrastructure\StatementMapperTests.cs">
       <SubType>Code</SubType>

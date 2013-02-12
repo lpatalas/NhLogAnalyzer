@@ -101,6 +101,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DependencyInjectionModule.cs" />
+    <Compile Include="Infrastructure\FullSqlFormatter.cs" />
     <Compile Include="Infrastructure\IConnectionFactory.cs" />
     <Compile Include="Infrastructure\IOpenFileDialog.cs" />
     <Compile Include="Infrastructure\ISqlFormatter.cs" />
