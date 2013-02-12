@@ -49,7 +49,7 @@ namespace NhLogAnalyzer.UI
 		private void UpdateDocument()
 		{
 			if (statementList.SelectedStatement != null)
-				Document.Text = statementList.SelectedStatement.SqlText;
+				Document.Text = statementList.SelectedStatement.FullSql;
 			else
 				Document.Text = string.Empty;
 		}

@@ -15,7 +15,7 @@ namespace NhLogAnalyzer.UnitTests.UI
 		public class DocumentProperty
 		{
 			[Fact]
-			public void Should_have_Text_equal_to_SqlText_in_selected_statement()
+			public void Should_have_Text_equal_to_FullSql_in_selected_statement()
 			{
 				// Arrange
 				var statement = new Statement(1, "Test", string.Empty, DateTime.Now);
@@ -26,7 +26,7 @@ namespace NhLogAnalyzer.UnitTests.UI
 				var document = viewModel.Document;
 
 				// Assert
-				Assert.Equal(statement.SqlText, document.Text);
+				Assert.Equal(statement.FullSql, document.Text);
 			}
 
 			[Fact]
@@ -42,7 +42,7 @@ namespace NhLogAnalyzer.UnitTests.UI
 				statementList.SelectedStatement = newStatement;
 
 				// Assert
-				Assert.Equal(newStatement.SqlText, viewModel.Document.Text);
+				Assert.Equal(newStatement.FullSql, viewModel.Document.Text);
 			}
 		}
 
