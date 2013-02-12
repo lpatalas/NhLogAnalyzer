@@ -17,12 +17,13 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			private const string logFileName = @"X:\files.txt";
 
 			private readonly MockConnectionFactory connectionFactory = new MockConnectionFactory();
+			private readonly MockStatementMapper statementMapper = new MockStatementMapper();
 			private readonly StatementReader statementReader;
 
 			public ReadMethod()
 			{
 				connectionFactory.CreateConnectionImpl = fileName => this.Connection;
-				statementReader = new StatementReader(connectionFactory);
+				statementReader = new StatementReader(connectionFactory, statementMapper);
 			}
 
 			[Fact]
@@ -52,30 +53,30 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			}
 
 			[Fact]
-			public void Should_read_all_rows_from_Statement_table()
+			public void Should_map_row_to_statement_using_StatementMapper()
 			{
 				// Arrange
-				var expectedStatements = new[]
+				var inputRows = new[]
 				{
-					new Statement(1, "SQL1", "STACK1", DateTime.Now),
-					new Statement(2, "SQL2", "STACK2", DateTime.Now.AddDays(1)),
-					new Statement(3, "SQL3", "STACK3", DateTime.Now.AddDays(2)),
+					new StatementRow(1, "SQL1", "STACK1", DateTime.Now),
+					new StatementRow(2, "SQL2", "STACK2", DateTime.Now.AddDays(1)),
+					new StatementRow(3, "SQL3", "STACK3", DateTime.Now.AddDays(2)),
 				};
 
-				InsertStatements(expectedStatements);
+				InsertStatements(inputRows);
+
+				var mappedRows = new List<StatementRow>();
+				statementMapper.MapImpl = row =>
+				{
+					mappedRows.Add(row);
+					return null;
+				};
 
 				// Act
-				var statements = statementReader.Read(logFileName);
+				statementReader.Read(logFileName);
 
 				// Assert
-				var pairs = statements.Zip(expectedStatements, (actual, expected) => new { actual, expected });
-				foreach (var pair in pairs)
-				{
-					Assert.Equal(pair.expected.Id, pair.actual.Id);
-					Assert.Equal(pair.expected.SqlText, pair.actual.SqlText);
-					Assert.Equal(pair.expected.StackTrace, pair.actual.StackTrace);
-					Assert.Equal(pair.expected.Timestamp.ToString(), pair.actual.Timestamp.ToString()); // TODO: Fix date comparison
-				}
+				Assert.Equal(inputRows, mappedRows);
 			}
 		}
 	}

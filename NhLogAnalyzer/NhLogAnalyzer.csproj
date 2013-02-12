@@ -105,6 +105,7 @@
     <Compile Include="Infrastructure\IOpenFileDialog.cs" />
     <Compile Include="Infrastructure\IStatementList.cs" />
     <Compile Include="Infrastructure\IStatementLog.cs" />
+    <Compile Include="Infrastructure\IStatementMapper.cs" />
     <Compile Include="Infrastructure\IStatementReader.cs" />
     <Compile Include="Infrastructure\OpenFileDialog.cs" />
     <Compile Include="Infrastructure\OpenFileResult.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Infrastructure\Statement.cs" />
     <Compile Include="Infrastructure\StatementLog.cs" />
     <Compile Include="Infrastructure\StatementReader.cs" />
+    <Compile Include="Infrastructure\StatementRow.cs" />
     <Compile Include="UI\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>

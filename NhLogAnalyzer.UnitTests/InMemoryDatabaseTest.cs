@@ -50,10 +50,10 @@ namespace NhLogAnalyzer.UnitTests
 			command.ExecuteNonQuery();
 		}
 
-		protected void InsertStatements(IEnumerable<Statement> statements)
+		protected void InsertStatements(IEnumerable<StatementRow> statementRows)
 		{
-			foreach (var statement in statements)
-				InsertStatement(statement.Timestamp, statement.SqlText, statement.StackTrace);
+			foreach (var statementRow in statementRows)
+				InsertStatement(statementRow.Timestamp, statementRow.SqlText, statementRow.StackTrace);
 		}
 
 		protected void InsertStatement(DateTime timestamp, string sqlText, string stackTrace)
