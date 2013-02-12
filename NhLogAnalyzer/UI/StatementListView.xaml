@@ -11,7 +11,7 @@
 		<ListBox ItemsSource="{Binding Statements}" SelectedItem="{Binding SelectedStatement}">
 			<ListBox.ItemTemplate>
 				<DataTemplate DataType="{x:Type svc:Statement}">
-					<TextBlock Text="{Binding SingleLineSqlText}" TextTrimming="CharacterEllipsis" />
+					<TextBlock Text="{Binding ShortSql}" TextTrimming="CharacterEllipsis" />
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
