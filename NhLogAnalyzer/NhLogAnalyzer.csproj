@@ -101,22 +101,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DependencyInjectionModule.cs" />
-    <Compile Include="Services\IConnectionFactory.cs" />
-    <Compile Include="Services\IOpenFileDialog.cs" />
-    <Compile Include="Services\IStatementList.cs" />
-    <Compile Include="Services\IStatementLog.cs" />
-    <Compile Include="Services\IStatementReader.cs" />
-    <Compile Include="Services\OpenFileDialog.cs" />
-    <Compile Include="Services\OpenFileResult.cs" />
+    <Compile Include="Infrastructure\IConnectionFactory.cs" />
+    <Compile Include="Infrastructure\IOpenFileDialog.cs" />
+    <Compile Include="Infrastructure\IStatementList.cs" />
+    <Compile Include="Infrastructure\IStatementLog.cs" />
+    <Compile Include="Infrastructure\IStatementReader.cs" />
+    <Compile Include="Infrastructure\OpenFileDialog.cs" />
+    <Compile Include="Infrastructure\OpenFileResult.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="Services\SQLiteConnectionFactory.cs" />
-    <Compile Include="Services\Statement.cs" />
-    <Compile Include="Services\StatementLog.cs" />
-    <Compile Include="Services\StatementReader.cs" />
+    <Compile Include="Infrastructure\SQLiteConnectionFactory.cs" />
+    <Compile Include="Infrastructure\Statement.cs" />
+    <Compile Include="Infrastructure\StatementLog.cs" />
+    <Compile Include="Infrastructure\StatementReader.cs" />
     <Compile Include="UI\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>

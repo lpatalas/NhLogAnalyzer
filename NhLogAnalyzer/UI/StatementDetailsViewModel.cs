@@ -8,7 +8,7 @@ using Caliburn.Micro;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
-using NhLogAnalyzer.Services;
+using NhLogAnalyzer.Infrastructure;
 
 namespace NhLogAnalyzer.UI
 {

@@ -103,10 +103,10 @@
     <Compile Include="Fakes\MockStatementReader.cs" />
     <Compile Include="InMemoryDatabaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\SQLiteConnectionFactoryTests.cs" />
-    <Compile Include="Services\StatementLogTests.cs" />
-    <Compile Include="Services\StatementReaderTests.cs" />
-    <Compile Include="Services\StatementTests.cs" />
+    <Compile Include="Infrastructure\SQLiteConnectionFactoryTests.cs" />
+    <Compile Include="Infrastructure\StatementLogTests.cs" />
+    <Compile Include="Infrastructure\StatementReaderTests.cs" />
+    <Compile Include="Infrastructure\StatementTests.cs" />
     <Compile Include="UI\ShellViewModelTests.cs" />
     <Compile Include="UI\StatementDetailsViewModelTests.cs" />
     <Compile Include="UI\StatementListViewModelTests.cs" />

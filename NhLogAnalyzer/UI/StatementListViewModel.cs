@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
-using NhLogAnalyzer.Services;
+using NhLogAnalyzer.Infrastructure;
 
 namespace NhLogAnalyzer.UI
 {

@@ -4,11 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NhLogAnalyzer.Services;
+using NhLogAnalyzer.Infrastructure;
 using NhLogAnalyzer.UnitTests.Fakes;
 using Xunit;
 
-namespace NhLogAnalyzer.UnitTests.Services
+namespace NhLogAnalyzer.UnitTests.Infrastructure
 {
 	public class StatementReaderTests
 	{
