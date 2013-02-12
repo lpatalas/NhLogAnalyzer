@@ -19,6 +19,7 @@ namespace NhLogAnalyzer
 			Bind<IConnectionFactory>().To<SQLiteConnectionFactory>();
 			Bind<IOpenFileDialog>().To<OpenFileDialog>();
 			Bind<IStatementLog>().To<StatementLog>().InSingletonScope();
+			Bind<IStatementMapper>().To<StatementMapper>();
 			Bind<IStatementReader>().To<StatementReader>();
 		}
 	}
