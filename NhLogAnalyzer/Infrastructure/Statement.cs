@@ -33,11 +33,6 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return stackFrames; }
 		}
 
-		public string StackTrace
-		{
-			get { return string.Empty; }
-		}
-
 		private readonly DateTime timestamp;
 		public DateTime Timestamp
 		{
