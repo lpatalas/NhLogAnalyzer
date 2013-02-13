@@ -22,7 +22,7 @@
 		<ListView Grid.Row="2" ItemsSource="{Binding Statement.StackFrames}">
 			<ListView.View>
 				<GridView>
-					<GridViewColumn Header="Method" DisplayMemberBinding="{Binding Method}" />
+					<GridViewColumn Header="Method" DisplayMemberBinding="{Binding MethodName}" />
 					<GridViewColumn Header="File" DisplayMemberBinding="{Binding FileName}" />
 				</GridView>
 			</ListView.View>

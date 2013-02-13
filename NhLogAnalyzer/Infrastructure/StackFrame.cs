@@ -26,15 +26,15 @@ namespace NhLogAnalyzer.Infrastructure
 			get { return line; }
 		}
 
-		private readonly string method;
-		public string Method
+		private readonly string methodName;
+		public string MethodName
 		{
-			get { return method; }
+			get { return methodName; }
 		}
 
-		public StackFrame(string method, string fileName, int line, int column)
+		public StackFrame(string methodName, string fileName, int line, int column)
 		{
-			this.method = method;
+			this.methodName = methodName;
 			this.fileName = fileName;
 			this.line = line;
 			this.column = column;

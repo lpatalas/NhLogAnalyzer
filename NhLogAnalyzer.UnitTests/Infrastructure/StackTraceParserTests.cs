@@ -70,7 +70,7 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 				var output = stackTraceParser.Parse(input);
 
 				// Assert
-				Assert.Equal("method", output[0].Method);
+				Assert.Equal("method", output[0].MethodName);
 			}
 
 			[Fact]
@@ -96,7 +96,7 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 				var output = stackTraceParser.Parse(input);
 
 				// Assert
-				Assert.Equal("method", output[0].Method);
+				Assert.Equal("method", output[0].MethodName);
 			}
 
 			[Fact]

@@ -83,7 +83,7 @@ namespace NhLogAnalyzer.UnitTests.Fakes
 
 				// Assert
 				Assert.Equal(1, output.StackFrames.Count);
-				Assert.Equal("StackMethod", output.StackFrames[0].Method);
+				Assert.Equal("StackMethod", output.StackFrames[0].MethodName);
 				Assert.Equal("StackFile", output.StackFrames[0].FileName);
 			}
 		}
