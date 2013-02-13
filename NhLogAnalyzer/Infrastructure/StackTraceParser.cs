@@ -20,19 +20,40 @@ namespace NhLogAnalyzer.Infrastructure
 			
 			while (line != null)
 			{
-				var methodName = ParseMethodName(line);
-				var fileInfo = ParseSourceFileInfo(line);
+				var stackFrameParts = line.Split(' ');
+				var methodName = stackFrameParts[0];
+				var fileName = string.Empty;
+				var offset = new FileOffset();
+
+				if (stackFrameParts.Length > 1)
+					fileName = stackFrameParts[1];
+				if (stackFrameParts.Length > 2)
+					offset = ParseOffset(stackFrameParts[2]);
 
 				stackFrames.Add(new StackFrame(
 					methodName,
-					fileInfo.FileName,
-					fileInfo.Offset.Line,
-					fileInfo.Offset.Column));
+					fileName,
+					offset.Line,
+					offset.Column));
 
 				line = reader.ReadLine();
 			}
 
 			return stackFrames.AsReadOnly();
+		}
+
+		private FileOffset ParseOffset(string input)
+		{
+			var result = new FileOffset();
+
+			var lineAndColumn = input.Split(':');
+			if (lineAndColumn.Length == 2)
+			{
+				int.TryParse(lineAndColumn[0], out result.Line);
+				int.TryParse(lineAndColumn[1], out result.Column);
+			}
+
+			return result;
 		}
 
 		private string ParseMethodName(string line)

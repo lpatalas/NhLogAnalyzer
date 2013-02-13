@@ -49,9 +49,9 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			{
 				// Arrange
 				var input
-					= "ABC ABC:1:1\r\n"
-					+ "DEF DEF:1:1\n"
-					+ "GHI GHI:1:1";
+					= "ABC ABC 1:1\r\n"
+					+ "DEF DEF 1:1\n"
+					+ "GHI GHI 1:1";
 
 				// Act
 				var output = stackTraceParser.Parse(input);
@@ -64,7 +64,7 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			public void Should_interpret_characters_before_first_space_as_method_name()
 			{
 				// Arrange
-				var input = "method file:1:2";
+				var input = "method file 1:2";
 
 				// Act
 				var output = stackTraceParser.Parse(input);
@@ -74,10 +74,10 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			}
 
 			[Fact]
-			public void Should_interpret_characters_between_first_space_and_first_following_colon_as_file_name()
+			public void Should_interpret_characters_between_first_and_second_space_as_file_name()
 			{
 				// Arrange
-				var input = "method file:1:2";
+				var input = "method file 1:2";
 
 				// Act
 				var output = stackTraceParser.Parse(input);
@@ -103,7 +103,7 @@ namespace NhLogAnalyzer.UnitTests.Infrastructure
 			public void Should_parse_line_and_column_number_from_last_two_digits_separated_by_colons()
 			{
 				// Arrange
-				var input = "method file:11:22";
+				var input = "method file 11:22";
 
 				// Act
 				var output = stackTraceParser.Parse(input);
