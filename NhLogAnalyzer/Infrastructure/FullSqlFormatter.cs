@@ -33,24 +33,11 @@ namespace NhLogAnalyzer.Infrastructure
 			return output;
 		}
 
-		private int CalculateIndent(string line)
-		{
-			return line
-				.TakeWhile(c => c == '\t')
-				.Count();
-		}
-
 		private void AlignLinesToLeftMargin(IList<string> lines)
 		{
-			var indentationCharCount = FindCommonIndentLength(lines);
-			if (indentationCharCount > 0)
-			{
-				for (int i = 0; i < lines.Count; i++)
-				{
-					if (!string.IsNullOrWhiteSpace(lines[i]))
-						lines[i] = lines[i].Substring(indentationCharCount);
-				}
-			}
+			var indentationLength = FindCommonIndentLength(lines);
+			if (indentationLength > 0)
+				RemovePrefixFromNonBlankLines(lines, indentationLength);
 		}
 
 		private int FindCommonIndentLength(IList<string> lines)
@@ -67,25 +54,12 @@ namespace NhLogAnalyzer.Infrastructure
 			{
 				var indent = GetIndent(line);
 				if (currentIndent != null)
-					currentIndent = CommonSubstring(currentIndent, indent);
+					currentIndent = CommonPrefix(currentIndent, indent);
 				else
 					currentIndent = indent;
 			}
 
 			return currentIndent ?? string.Empty;
-		}
-
-		private string CommonSubstring(string first, string second)
-		{
-			var commonSubstringLength = first
-				.Zip(second, (firstChar, secondChar) => new { firstChar, secondChar })
-				.TakeWhile(pair => pair.firstChar == pair.secondChar)
-				.Count();
-
-			if (commonSubstringLength > 0)
-				return first.Substring(0, commonSubstringLength);
-			else
-				return string.Empty;
 		}
 
 		private string GetIndent(string line)
@@ -97,10 +71,26 @@ namespace NhLogAnalyzer.Infrastructure
 				return string.Empty;
 		}
 
-		private void UnindentLines(List<string> lines, int indentLevelsToRemove)
+		private string CommonPrefix(string first, string second)
+		{
+			var commonPrefixLength = first
+				.Zip(second, (firstChar, secondChar) => new { firstChar, secondChar })
+				.TakeWhile(pair => pair.firstChar == pair.secondChar)
+				.Count();
+
+			if (commonPrefixLength > 0)
+				return first.Substring(0, commonPrefixLength);
+			else
+				return string.Empty;
+		}
+
+		private void RemovePrefixFromNonBlankLines(IList<string> lines, int prefixLength)
 		{
 			for (int i = 0; i < lines.Count; i++)
-				lines[i] = lines[i].Substring(indentLevelsToRemove);
+			{
+				if (!string.IsNullOrWhiteSpace(lines[i]))
+					lines[i] = lines[i].Substring(prefixLength);
+			}
 		}
 	}
 }
