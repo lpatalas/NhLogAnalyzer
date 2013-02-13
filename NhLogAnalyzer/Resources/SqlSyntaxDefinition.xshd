@@ -5,8 +5,9 @@
 	<Color name="Comment" foreground="#888" />
 	<Color name="Punctuation" foreground="#fff" />
 	<Color name="KeywordStandard" foreground="#ff8" />
+	<Color name="TypeName" foreground="#8ff" />
 	<RuleSet ignoreCase="true">
-		<Span color="String" multiline="true" >
+		<Span color="String" multiline="true">
 			<Begin>'</Begin>
 			<End>'</End>
 		</Span>
@@ -157,6 +158,41 @@
 			<Word>WHERE</Word>
 			<Word>WHILE</Word>
 			<Word>WITH</Word>
+		</Keywords>
+		<Keywords color="TypeName">
+			<Word>bigint</Word>
+			<Word>numeric</Word>
+			<Word>bit</Word>
+			<Word>smallint</Word>
+			<Word>decimal</Word>
+			<Word>smallmoney</Word>
+			<Word>int</Word>
+			<Word>tinyint</Word>
+			<Word>money</Word>
+			<Word>float</Word>
+			<Word>real</Word>
+			<Word>date</Word>
+			<Word>datetimeoffset</Word>
+			<Word>datetime2</Word>
+			<Word>smalldatetime</Word>
+			<Word>datetime</Word>
+			<Word>time</Word>
+			<Word>char</Word>
+			<Word>varchar</Word>
+			<Word>text</Word>
+			<Word>nchar</Word>
+			<Word>nvarchar</Word>
+			<Word>ntext</Word>
+			<Word>binary</Word>
+			<Word>varbinary</Word>
+			<Word>image</Word>
+			<Word>cursor</Word>
+			<Word>timestamp</Word>
+			<Word>hierarchyid</Word>
+			<Word>uniqueidentifier</Word>
+			<Word>sql_variant</Word>
+			<Word>xml</Word>
+			<Word>table</Word>
 		</Keywords>
 		<Rule color="Punctuation">
 			[?,.;(){}+\-/%*&lt;&gt;^+~!|&amp;]+
