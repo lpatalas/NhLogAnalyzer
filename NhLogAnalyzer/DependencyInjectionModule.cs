@@ -18,6 +18,7 @@ namespace NhLogAnalyzer
 
 			Bind<IConnectionFactory>().To<SQLiteConnectionFactory>();
 			Bind<IOpenFileDialog>().To<OpenFileDialog>();
+			Bind<IStackTraceParser>().To<StackTraceParser>();
 			Bind<IStatementLog>().To<StatementLog>().InSingletonScope();
 			Bind<IStatementMapper>().To<StatementMapper>()
 				.WithConstructorArgument("fullSqlFormatter", context => new FullSqlFormatter())
